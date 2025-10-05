@@ -5,12 +5,30 @@ body {
 }
 
 /* Site background image */
+/* Site background image */
 body {
   background-image: url('asserts/background.jpg');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   color: #222;
+  position: relative;
+}
+
+/* Lighten the background image with a translucent white overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.35); /* adjust alpha to taste */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ensure content sits above the overlay */
+header, .container, main, footer {
+  position: relative;
+  z-index: 1;
 }
 
 /* Ensure main content remains readable over the background */
@@ -56,7 +74,6 @@ header {
   align-items: center;
   justify-content: space-between; /* logo left, title right */
   gap: 12px;
-  position: relative; /* for absolute centering of title */
 }
 
 .site-logo {
@@ -74,30 +91,11 @@ nav {
 
 /* Larger site title in the header */
 .site-header h1 {
-  font-size: 2.1rem;
+  font-size: clamp(1.8rem, 8vw, 6.5rem); /* scales with viewport */
   margin: 0;
   letter-spacing: 1px;
   text-align: center;
-}
-
-/* Center the title horizontally in the header regardless of other elements */
-.site-header h1 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* On small screens, revert to normal flow to avoid overlapping the logo */
-@media (max-width: 700px) {
-  .site-header {
-    justify-content: flex-start;
-  }
-  .site-header h1 {
-    position: static;
-    transform: none;
-    margin-left: 12px;
-    font-size: 1.6rem;
-  }
+  flex: 1 1 auto; /* allow title to take available space */
 }
 
 nav a {
