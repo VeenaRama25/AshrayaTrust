@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - My Website</title>
+  <title>Ashraya Trust</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>Welcome to My Ashraya Trust</h1>
+    <div class="site-header">
+  <img src="asserts/Ashraya Trust Logo.jpg" alt="Ashraya Trust logo" class="site-logo">
+      <h1>ASHRAYA TRUST</h1>
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -17,12 +20,30 @@
   </header>
 
   <main>
-    <h2>Home Page</h2>
-    <p>This is a simple website example with multiple pages.</p>
+    <h2>Ashraya Trust</h2>
+
+    <div class="slideshow" aria-roledescription="carousel">
+  <img class="slide" src="asserts/Scholarship Distribution pic 1.jpeg" alt="Scholarship distribution 1">
+  <img class="slide" src="asserts/Scholarship Distribution pic 2.jpeg" alt="Scholarship distribution 2" style="display:none;">
+    </div>
+
+    <p>Our initiatives focus on improving rural livelihoods through three key programs. We organize medical camps to provide essential healthcare and raise health awareness in underserved villages. Our dry land development projects promote sustainable agriculture through water conservation, soil enrichment, and eco-friendly farming practices. We also empower women by forming self-help groups and offering tailoring training, enabling them to gain financial independence and support their families. Together, these programs aim to enhance health, sustainability, and economic growth in rural communities, fostering self-reliance and improved quality of life for all</p>
+
+    <script>
+      (function(){
+        const slides = document.querySelectorAll('.slideshow .slide');
+        let i = 0;
+        setInterval(() => {
+          slides[i].style.display = 'none';
+          i = (i + 1) % slides.length;
+          slides[i].style.display = '';
+        }, 3000);
+      })();
+    </script>
   </main>
 
   <footer>
-    <p>&copy; 2025 My Website</p>
+    <p>&copy; 2025 Ashraya Trust</p>
   </footer>
 </body>
 </html>
